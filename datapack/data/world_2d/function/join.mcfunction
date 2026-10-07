@@ -2,7 +2,7 @@
 # loaded yet, so tick.mcfunction puts them on top of the ground a moment later.
 tag @s add w2d_fresh
 scoreboard players set @s w2d_left 0
-effect give @s minecraft:slow_falling 3 0 true
+effect give @s minecraft:slow_falling 10 0 true
 scoreboard players set @s w2d_age 0
 tp @s ~ ~ 0.5 180 0
 

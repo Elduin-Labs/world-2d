@@ -3,10 +3,11 @@
 # Anyone who left and came back gets set up again.
 execute as @a[scores={w2d_left=1..}] run function world_2d:join
 
-# Players who just arrived: wait for the ground to load, then stand on it.
-execute as @a[tag=w2d_fresh] at @s positioned over motion_blocking_no_leaves run tp @s ~ ~ ~
+# Players who just arrived: wait until the ground below them has loaded, then
+# stand them on top of it. Give up after 10 seconds.
+execute as @a[tag=w2d_fresh] at @s if loaded ~ ~ ~ positioned over motion_blocking_no_leaves run function world_2d:land
 scoreboard players add @a[tag=w2d_fresh] w2d_age 1
-tag @a[tag=w2d_fresh,scores={w2d_age=30..}] remove w2d_fresh
+tag @a[tag=w2d_fresh,scores={w2d_age=200..}] remove w2d_fresh
 
 # Everybody else gets pulled back onto the line if they drift off it.
 execute as @a[tag=!w2d_fresh] at @s unless predicate world_2d:on_line run tp @s ~ ~ 0.5
