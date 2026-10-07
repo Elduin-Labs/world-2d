@@ -9,6 +9,9 @@ tag @a[tag=w2d_fresh,scores={w2d_age=30..}] remove w2d_fresh
 execute as @a[tag=!w2d_fresh] at @s unless predicate world_2d:on_line run tp @s ~ ~ 0.5
 execute as @a at @s as @e[type=!minecraft:player,distance=..80] at @s unless predicate world_2d:on_line run tp @s ~ ~ 0.5
 
+# Keep everybody looking north, so the camera behind you is always side-on.
+execute as @a[tag=!w2d_fresh] unless entity @s[y_rotation=170..180] unless entity @s[y_rotation=-180..-170] run tp @s ~ ~ ~ 180 ~
+
 # Clear the blocks between the camera and the line a few times a second.
 scoreboard players add #clear w2d_timer 1
 execute if score #clear w2d_timer matches 4.. as @a[tag=!w2d_fresh] at @s run fill ~-14 ~-9 1 ~14 ~9 9 minecraft:air
