@@ -1,5 +1,8 @@
 # Everyone lives on one line: z = 0.5, the middle of the row of blocks at z = 0.
 
+# Anyone who left and came back gets set up again.
+execute as @a[scores={w2d_left=1..}] run function world_2d:join
+
 # Players who just arrived: wait for the ground to load, then stand on it.
 execute as @a[tag=w2d_fresh] at @s positioned over motion_blocking_no_leaves run tp @s ~ ~ ~
 scoreboard players add @a[tag=w2d_fresh] w2d_age 1

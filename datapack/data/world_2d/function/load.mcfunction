@@ -3,3 +3,6 @@ scoreboard objectives add w2d_timer dummy
 
 # Falling does not hurt in 2D.
 gamerule fall_damage false
+
+# Leaving the game counts up this score, so we know who is coming back.
+scoreboard objectives add w2d_left minecraft.custom:minecraft.leave_game
