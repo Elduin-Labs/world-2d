@@ -1,0 +1,7 @@
+{
+  "pack": {
+    "description": "2D World: Minecraft in 2D. Needs the 2D World mod to see it from the side.",
+    "min_format": 94,
+    "max_format": 121
+  }
+}

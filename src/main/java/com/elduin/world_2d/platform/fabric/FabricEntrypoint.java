@@ -1,8 +1,8 @@
-package com.example.modtemplate.platform.fabric;
+package com.elduin.world_2d.platform.fabric;
 
 //? fabric {
 
-import com.example.modtemplate.ModTemplate;
+import com.elduin.world_2d.ModTemplate;
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
 import net.fabricmc.api.ModInitializer;
 

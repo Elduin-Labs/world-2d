@@ -1,6 +1,6 @@
-# <MOD_DISPLAY_NAME>
+# 2D World
 
-<One plain sentence: what this mod does, in Elduin's words.>
+Minecraft in 2D: a flat side view where you can see yourself and punch right through trees.
 
 This file is read automatically whenever Claude Code is opened in this folder.
 Everything below is specific to this one mod. The general rules about how to
@@ -8,12 +8,12 @@ work with Elduin live in `~/.claude/CLAUDE.md`.
 
 ## Facts about this mod
 
-    mod id            <mod_id>              (underscores — never change this)
-    slug              <mod-slug>            (repo name and Modrinth slug)
-    package           <com.elduin.mod_id>
+    mod id            world_2d              (underscores — never change this)
+    slug              world-2d            (repo name and Modrinth slug)
+    package           com.elduin.world_2d
     loader            fabric                (only fabric — see below)
-    minecraft         <1.21.11, 26.2>
-    primary version   <1.21.11>             (the one he plays)
+    minecraft         26.3
+    primary version   26.3             (the one he plays)
     java              21 for 1.21.x, 25 for 26.x — Gradle picks this per version
 
 The mod id is baked into save files. Once a world has been played with this mod,
@@ -25,7 +25,7 @@ never rename the mod id.
 Multi-version is handled by [Stonecutter](https://plugins.gradle.org/plugin/dev.kikugie.stonecutter):
 one source tree, version-conditional comments, many outputs.
 
-    src/main/java/<package>/                the mod
+    src/main/java/com/elduin/world_2d/                the mod
     src/main/resources/                     assets, textures, mixins, lang
     versions/<mcversion>-fabric/build/libs/ built jars land here
     stonecutter.properties.toml             mod id, name, version, dependencies
@@ -37,7 +37,7 @@ There is **no `fabric.mod.json` file** — it is generated at build time from
 metadata means editing the `.toml`, not a json file. Same for `mod.version`:
 there is no `mod_version` in `gradle.properties`.
 
-Stonecutter subprojects are named `<mcversion>-fabric`, so the 1.21.11 jar is in
+Stonecutter subprojects are named `<mcversion>-fabric`, so the 26.3 jar is in
 `versions/1.21.11-fabric/build/libs/`. That `-fabric` suffix is easy to forget.
 
 Do **not** add a branch or a repo for a new Minecraft version. Add it to the
@@ -84,7 +84,7 @@ placeholder file does not work — it fails the build on 1.21.11+.
 - Textures are 16x16 unless there's a reason. Keep the pixel-art style consistent
   with the rest of the mod.
 - Every new block, item and mob needs an entry in the language file
-  (`assets/<mod_id>/lang/en_us.json`) or it shows up in-game as a raw id, which
+  (`assets/world_2d/lang/en_us.json`) or it shows up in-game as a raw id, which
   reads to him as "broken".
 - Anything a player can tune goes in the config, not hardcoded.
 - Keep it dependency-free where possible. If a library is genuinely needed, it
