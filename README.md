@@ -9,6 +9,7 @@ you can see yourself. The world is the normal world, flattened into a slice.
 - Clears the blocks between you and the camera.
 - Looks north all the time, and puts the camera 8 blocks behind you.
 - **A** and **D** walk you left and right.
+- Falling does not hurt.
 
 Add it when you make a world: **Data Packs**, then drag the zip into the
 window. It also works on a multiplayer server. When you join, press **F5**
